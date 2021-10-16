@@ -1,0 +1,62 @@
+h1 {
+    text-align: center;
+    color: limegreen;
+  font-family: "Al Bayan", serif;
+}
+form {
+    text-align: center;
+    font-family: 'Ubuntu', 'Lucida Grande', 'Lucida Sans Unicode', 'Geneva', 'Verdana', sans-serif;
+}
+a {
+  text-decoration: none;
+}
+a:hover {
+  text-decoration: underline;
+}
+a:visited {
+    color: blue;
+
+}
+* {box-sizing: border-box;}
+body{margin: 0;}
+div {padding: 30px 0}
+form {
+  position: relative;
+  width: 300px;
+  margin: 0 auto;
+}
+.d1 {background: #7BA7AB;}
+.d1:after {content:""; clear:both; display:table}
+.d1 form {
+  width: auto;
+  margin-right: 30px;
+}
+.d1 input {
+  width: 250px;
+  height: 42px;
+  padding-left: 15px;
+  border-radius: 42px;
+  border: 2px solid #324b4e;
+  background: #F9F0DA;
+  outline: none;
+  position: relative;
+  transition: .3s linear;
+  cursor:pointer;
+}
+.d1 input:focus {
+  width: 320px;
+}
+.d1 button {
+  width: 42px;
+  height: 42px;
+  background: none;
+  border: none;
+  position: relative;
+  bottom: 57px;
+  left:107px;
+}
+.d1 button:before{
+  content: "\f002";
+    font-family: FontAwesome, fantasy;
+  color: #324b4e;
+}

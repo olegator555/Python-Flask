@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="{{ url_for('static',filename = 'style.css') }}">
+    <title>list</title>
+</head>
+<body>
+<h1>Выберите вариант поиска:</h1>
+<form>
+    <li>
+        <a href='/requests/request1'>Показать помещения, стоимость которых выше заданного значения</a>
+        <br>
+    </li>
+    <br>
+    <li>
+        <a href='/requests/request2'>Показать заказы, оформленные в заданном диапазоне</a>
+        <br>
+    </li>
+    <br>
+    <a href ='/'>Вернуться в начало</a>
+
+</form>
+
+</body>
+</html>

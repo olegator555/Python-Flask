@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel=stylesheet href="{{url_for('static',filename = 'style.css')}}">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
+    <title>Login</title>
+</head>
+<body>
+{% block header %}
+
+{% endblock %}
+<div class = "d1">
+    <form action="" method="post">
+        <p>
+	    <label for="username"></label>
+            {% block placeholder %}
+	    <input type="text" name="username" placeholder="">
+            {% endblock %}
+	</p>
+	<p>
+
+        <button type="submit"></button>
+	</p>
+    {% block answer %}
+    {% endblock %}
+    </form>
+</div>
+<div class="d2">
+    <form>
+        <a href="/requests">Вернуться в меню</a>
+    </form>
+</div>
+
+</body>
+</html>

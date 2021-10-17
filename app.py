@@ -11,10 +11,14 @@ app = Flask(__name__)
 app.register_blueprint(main, url_prefix="/requests")
 
 
-
 @app.route('/')
 def base():
     return render_template('base.html')
+
+
+@app.route('/goodbye')
+def goodbye():
+    return render_template('goodbye_page.html')
 
 
 if __name__ == '__main__':

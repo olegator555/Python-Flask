@@ -32,9 +32,9 @@ def request1():
         _SQL_ = "select * from realty where (cost_per_mounth>'%s')"
         result = work_with_db(dbconfig, _SQL_, name)
         if not result:
-            return render_template('id_data.html', result="Такой записи не существует")
+            return render_template('request1_data.html', result="Такой записи не существует")
 
-        return render_template('id_data.html', result=result)
+        return render_template('request1_data.html', result=result)
 
     return render_template('request1.html')
 
@@ -48,8 +48,8 @@ def request2():
         _SQL_ = "select * from lab2.order where date between '%s' and '%s'"
         result = work_with_db(dbconfig, _SQL_, (date1, date2))
         if not result:
-            return render_template('name_data.html', result="Такой записи не существует")
+            return render_template('request2_data.html', result="Такой записи не существует")
 
-        return render_template('name_data.html', result=result)
+        return render_template('request2_data.html', result=result)
 
     return render_template('request2.html')

@@ -27,14 +27,15 @@ def requests():
 @main.route('/request1', methods=('GET', 'POST'))
 def request1():
     if request.method == 'POST':
-        name = request.form.get('username')
-        dbconfig = {'host': 'localhost', 'port': 3306, 'user': 'root', 'password': "", 'db': 'Lab2'}
-        _SQL_ = "select * from realty where (cost_per_mounth>'%s')"
-        result = work_with_db(dbconfig, _SQL_, name)
+        month = request.form.get('username')
+        year = request.form.get('password')
+        dbconfig = {'host': 'localhost', 'port': 3306, 'user': 'root', 'password': "", 'db': 'Lab1'}
+        _SQL_ = "select * from tovar where month(date)='%s' and year(date)='%s';"
+        result = work_with_db(dbconfig, _SQL_, (month, year))
         if not result:
-            return render_template('id_data.html', result="Такой записи не существует")
+            return render_template('request1_data.html', result="Такой записи не существует")
 
-        return render_template('id_data.html', result=result)
+        return render_template('request1_data.html', result=result)
 
     return render_template('request1.html')
 
@@ -42,14 +43,75 @@ def request1():
 @main.route('/request2', methods=('GET', 'POST'))
 def request2():
     if request.method == 'POST':
-        date1 = request.form.get('username')
-        date2 = request.form.get('password')
-        dbconfig = {'host': 'localhost', 'port': 3306, 'user': 'root', 'password': "", 'db': 'Lab2'}
-        _SQL_ = "select * from lab2.order where date between '%s' and '%s'"
-        result = work_with_db(dbconfig, _SQL_, (date1, date2))
+        days = request.form.get('username')
+        dbconfig = {'host': 'localhost', 'port': 3306, 'user': 'root', 'password': "", 'db': 'Lab1'}
+        _SQL_ = "SELECT * FROM Lab1.order where to_days(curdate())-to_days(order_date)<'%s';"
+        result = work_with_db(dbconfig, _SQL_, days)
         if not result:
-            return render_template('name_data.html', result="Такой записи не существует")
+            return render_template('request2_data.html', result="Такой записи не существует")
 
-        return render_template('name_data.html', result=result)
+        return render_template('request2_data.html', result=result)
 
     return render_template('request2.html')
+
+
+@main.route('/request3', methods=('GET', 'POST'))
+def request3():
+    if request.method == 'POST':
+        days = request.form.get('username')
+        dbconfig = {'host': 'localhost', 'port': 3306, 'user': 'root', 'password': "", 'db': 'Lab1'}
+        _SQL_ = "SELECT status, count(status) FROM lab1.order where(to_days(curdate())-to_days(order_date))<'%s' " \
+                "group by status; "
+        result = work_with_db(dbconfig, _SQL_, days)
+        if not result:
+            return render_template('request3_data.html', result="Такой записи не существует")
+
+        return render_template('request3_data.html', result=result)
+
+    return render_template('request3.html')
+
+
+@main.route('/request4', methods=('GET', 'POST'))
+def request4():
+    if request.method == 'POST':
+        category = request.form.get('username')
+        dbconfig = {'host': 'localhost', 'port': 3306, 'user': 'root', 'password': "", 'db': 'Lab1'}
+        _SQL_ = "SELECT category, count(name) FROM lab1.tovar where category = '%s' group by category;"
+        result = work_with_db(dbconfig, _SQL_, category)
+        if not result:
+            return render_template('request4_data.html', result="Такой записи или категории не существует")
+
+        return render_template('request4_data.html', result=result)
+
+    return render_template('request4.html')
+
+
+@main.route('/request5', methods=('GET', 'POST'))
+def request5():
+    if request.method == 'POST':
+        status = request.form.get('username')
+        dbconfig = {'host': 'localhost', 'port': 3306, 'user': 'root', 'password': "", 'db': 'Lab1'}
+        _SQL_ = "select id, sum(summa) from lab1.order where status='%s' group by id;"
+        result = work_with_db(dbconfig, _SQL_, status)
+        if not result:
+            return render_template('request5_data.html', result="Такой записи не существует")
+
+        return render_template('request5_data.html', result=result)
+
+    return render_template('request5.html')
+
+
+@main.route('/request6', methods=('GET', 'POST'))
+def request6():
+    if request.method == 'POST':
+        year = request.form.get('username')
+        dbconfig = {'host': 'localhost', 'port': 3306, 'user': 'root', 'password': "", 'db': 'Lab1'}
+        _SQL_ = "SELECT client_crypt,min(summa) from lab1.order where year(order_date)='%s' and status=2 group by " \
+                "client_crypt; "
+        result = work_with_db(dbconfig, _SQL_, year)
+        if not result:
+            return render_template('request6_data.html', result="Такой записи не существует")
+
+        return render_template('request6_data.html', result=result)
+
+    return render_template('request6.html')

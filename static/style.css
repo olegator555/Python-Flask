@@ -3,6 +3,9 @@ h1 {
     color: limegreen;
   font-family: "Al Bayan", serif;
 }
+h4 {
+  text-align: center;
+}
 form {
     text-align: center;
     font-family: 'Ubuntu', 'Lucida Grande', 'Lucida Sans Unicode', 'Geneva', 'Verdana', sans-serif;

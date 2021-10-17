@@ -6,9 +6,18 @@
     <title>main</title>
 </head>
 <body>
+{% block head %}
 <h1>Добро пожаловать!</h1>
+{% endblock %}
+
 <form>
-    <a href='/requests'>Начать!</a>
+    {% block links %}
+        <li>
+            <a href='/requests'>Выполнять запросы</a>
+        </li>
+        <br>
+        <a href='/goodbye'>Завершить</a>
+    {% endblock %}
 </form>
 </body>
 </html>

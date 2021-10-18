@@ -6,5 +6,7 @@
 {% block input %}
 {% endblock %}
 {% block answer %}
-    <p>{{ result }}</p>
+    {% for word in result %}
+        <p>{{ word }}</p>
+    {% endfor %}
 {% endblock %}

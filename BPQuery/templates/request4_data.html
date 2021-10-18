@@ -1,4 +1,16 @@
 {% extends 'request4.html' %}
+{% block header %}
+    <h1>Результат поиска по категории:</h1>
+{% endblock %}
+
+{% block input %}
+{% endblock %}
 {% block answer %}
-    <p>{{ result }}</p>
+    {% if result!="" %}
+        {% for word in result %}
+            <p>{{ word }}</p>
+    {% endfor %}
+    {% else %}
+        <h4>Такой записи не существует</h4>
+    {% endif %}
 {% endblock %}

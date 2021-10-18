@@ -3,9 +3,14 @@
     <h1>Результат поиска по дате:</h1>
 {% endblock %}
 
-{% block inpput %}
+{% block input %}
 {% endblock %}
 {% block answer %}
-    {% for word in result %}
-    <p>{{ word }}</p>
+    {% if result!="" %}
+        {% for word in result %}
+            <p>{{ word }}</p>
+    {% endfor %}
+    {% else %}
+        <h4>Такой записи не существует</h4>
+    {% endif %}
 {% endblock %}

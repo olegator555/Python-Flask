@@ -1,11 +1,10 @@
 {% extends 'requests.html' %}
 {% block header %}
-    <h1>Поиск за заказов за последнее время:</h1>
+    <h1>Поиск заказов за последнее время:</h1>
     <h4>Введите количество дней с момента заказа</h4>
 {% endblock %}
 {% block placeholder %}
-<input type="text" name="username" placeholder="Введите количество дней">
+<input type="text" name="days" placeholder="Введите количество дней">
 {% endblock %}
 {% block answer %}
-{{ super() }}
 {% endblock %}

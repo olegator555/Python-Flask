@@ -2,9 +2,9 @@
 {% block header %}
     <h1>Поиск по стоимости:</h1>
 {% endblock %}
+{% block input %}
+    {{ super() }}
+{% endblock %}
 {% block placeholder %}
 <input type="text" name="username" placeholder="Введите стоимость">
-{% endblock %}
-{% block answer %}
-{{ super() }}
 {% endblock %}

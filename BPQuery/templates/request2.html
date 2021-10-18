@@ -5,7 +5,8 @@
 {% block placeholder %}
 <input type="text" name="username" placeholder="Введите первую дату">
 {% endblock %}
-{% block answer %}
+{% block input %}
+    {{ super() }}
 <label for="password"></label>
 	    <input type="text" name="password" placeholder="Введите вторую дату">
     <p>

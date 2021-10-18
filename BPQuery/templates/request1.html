@@ -4,12 +4,18 @@
     <h4>Введите месяц и год</h4>
 {% endblock %}
 {% block placeholder %}
-<input type="text" name="username" placeholder="Введите месяц">
+    <input type="text" name="username" placeholder="Введите месяц">
 {% endblock %}
-{% block answer %}
-<label for="password"></label>
-	    <input type="text" name="password" placeholder="Введите год">
-    <p>
+
+{% block input %}
+    {{ super() }}
+	    <label for="year"></label>
+
+	    <input type="text" name="year" placeholder="Введите год">
+
+	</p>
+	<p>
+
         <button type="submit"></button>
-    </p>
+	</p>
 {% endblock %}

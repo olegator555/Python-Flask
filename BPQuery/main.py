@@ -27,8 +27,8 @@ def requests():
 @main.route('/request1', methods=('GET', 'POST'))
 def request1():
     if request.method == 'POST':
-        month = request.form.get('username')
-        year = request.form.get('password')
+        month = request.form.get('month')
+        year = request.form.get('year')
         dbconfig = {'host': 'localhost', 'port': 3306, 'user': 'root', 'password': "", 'db': 'Lab1'}
         _SQL_ = "select * from tovar where month(date)='%s' and year(date)='%s';"
         result = work_with_db(dbconfig, _SQL_, (month, year))

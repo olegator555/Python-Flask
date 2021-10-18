@@ -1,5 +1,11 @@
 {% extends 'request1.html' %}
+{% block header %}
+    <h1>Результат поиска по дате:</h1>
+{% endblock %}
+
+{% block inpput %}
+{% endblock %}
 {% block answer %}
-    {{ super() }}
-    <p>{{ result }}</p>
+    {% for word in result %}
+    <p>{{ word }}</p>
 {% endblock %}

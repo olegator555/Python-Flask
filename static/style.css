@@ -1,11 +1,9 @@
 h1 {
     text-align: center;
-    color: limegreen;
-  font-family: "Al Bayan", serif;
+
 }
 form {
     text-align: center;
-    font-family: 'Ubuntu', 'Lucida Grande', 'Lucida Sans Unicode', 'Geneva', 'Verdana', sans-serif;
 }
 a {
   text-decoration: none;
@@ -60,3 +58,6 @@ form {
     font-family: FontAwesome, fantasy;
   color: #324b4e;
 }
+.row table {
+    margin: auto; /* Выравниваем таблицу по центру окна  */
+   }

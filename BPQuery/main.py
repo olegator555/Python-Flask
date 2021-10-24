@@ -1,9 +1,12 @@
+import json
+
 from flask import Blueprint, request
 from flask import render_template
 from UserDatabase import UserDatabase
 from pymysql import connect
 
 main = Blueprint('main', __name__, template_folder='./templates', static_folder='./static')
+dbconfig = json.load(open('config/db.json'))
 
 
 def work_with_db(dbconfig, _SQL_, name):
@@ -28,8 +31,7 @@ def requests():
 def request1():
     if request.method == 'POST':
         name = request.form.get('username')
-        dbconfig = {'host': 'localhost', 'port': 3306, 'user': 'root', 'password': "", 'db': 'Lab2'}
-        _SQL_ = "select * from realty where (cost_per_mounth>'%s')"
+        _SQL_ = "select * from lab2.realty where (cost_per_mounth>'%s')"
         result = work_with_db(dbconfig, _SQL_, name)
         if not result:
             return render_template('request1_data.html', result="Такой записи не существует")
@@ -44,7 +46,6 @@ def request2():
     if request.method == 'POST':
         date1 = request.form.get('username')
         date2 = request.form.get('password')
-        dbconfig = {'host': 'localhost', 'port': 3306, 'user': 'root', 'password': "", 'db': 'Lab2'}
         _SQL_ = "select * from lab2.order where date between '%s' and '%s'"
         result = work_with_db(dbconfig, _SQL_, (date1, date2))
         if not result:

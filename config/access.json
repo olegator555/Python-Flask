@@ -1,7 +1,13 @@
 {
-  "typical": [
+  "user1": [
+    "request1",
+    "",
     "auth"
-    ""
+  ],
+  "user2": [
+    "request2",
+    "",
+    "auth"
   ],
   "admin": [
     "auth",

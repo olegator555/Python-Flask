@@ -1,14 +1,8 @@
-h1 {
+h1, h4{
     text-align: center;
-    color: limegreen;
-  font-family: "Al Bayan", serif;
-}
-h4 {
-  text-align: center;
 }
 form {
     text-align: center;
-    font-family: 'Ubuntu', 'Lucida Grande', 'Lucida Sans Unicode', 'Geneva', 'Verdana', sans-serif;
 }
 a {
   text-decoration: none;
@@ -62,4 +56,7 @@ form {
   content: "\f002";
     font-family: FontAwesome, fantasy;
   color: #324b4e;
+}
+table {
+  margin: 10px auto;
 }

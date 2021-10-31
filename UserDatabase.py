@@ -52,3 +52,14 @@ class UserDatabase:
             self.cursor.close()
             self.conn.close()
             return True
+
+
+def work_with_db(dbconfig, _SQL_, name):
+    with UserDatabase(dbconfig) as cursor:
+        if cursor is None:
+            raise ValueError('Курсор не был создан')
+        elif cursor:
+            cursor.execute(_SQL_ % name)
+            result = cursor.fetchall()
+
+        return result

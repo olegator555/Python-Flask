@@ -1,0 +1,24 @@
+{
+  "user1": [
+    "request1",
+    "request3",
+    "request5",
+    "",
+    "auth"
+  ],
+  "user2": [
+    "request2",
+    "request4",
+    "request6",
+    "",
+    "auth"
+  ],
+  "admin": [
+    "auth",
+    "",
+    "main"
+  ],
+  "unauthorized": [
+    "auth"
+  ]
+}

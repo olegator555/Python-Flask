@@ -54,12 +54,15 @@ class UserDatabase:
             return True
 
 
-def work_with_db(dbconfig, _SQL_, name):
+def work_with_db(dbconfig, _SQL_, name=None):
     with UserDatabase(dbconfig) as cursor:
         if cursor is None:
             raise ValueError('Курсор не был создан')
         elif cursor:
-            cursor.execute(_SQL_ % name)
-            result = cursor.fetchall();
+            if name is None:
+                cursor.execute(_SQL_)
+            elif name:
+                cursor.execute(_SQL_ % name)
+            result = cursor.fetchall()
 
         return result

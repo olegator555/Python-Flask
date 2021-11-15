@@ -30,13 +30,10 @@ def group_validation_decorator(f):
 def group_permission_validation():
     access_config = current_app.config['ACCESS_CONFIG']
     group_name = session.get('group_name', 'unauthorized')
-    print(group_name)
     if group_name == 'admin':
         target_app = "" if len(request.endpoint.split('.')) == 1 else request.endpoint.split('.')[0]
     else:
         target_app = "" if len(request.endpoint.split('.')) == 1 else request.endpoint.split('.')[1]
-    print(access_config[group_name])
-    print(target_app)
     if group_name in access_config and target_app in access_config[group_name]:
         return True
     return False
@@ -45,9 +42,10 @@ def group_permission_validation():
 def group_permission_decorator(f):
     @wraps(f)
     def wrapper(*args, **kwargs):
-        if group_permission_validation():
+        if group_validation():
             return f(*args, **kwargs)
 
         return "Permission denied"
 
     return wrapper
+

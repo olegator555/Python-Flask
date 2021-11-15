@@ -12,7 +12,8 @@
   "admin": [
     "auth",
     "",
-    "main"
+    "main",
+    "order"
   ],
   "unauthorized": [
     "auth"

@@ -1,3 +1,3 @@
 {
-  "host": "localhost", "port": 3306, "user": "root", "password": "", "db": "Lab2"
+  "host": "localhost", "port": 3306, "user": "root", "password": "password", "db": "Lab2"
 }

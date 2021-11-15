@@ -1,0 +1,1 @@
+select user_role from lab2.user_root where login='%s' and password='%s'

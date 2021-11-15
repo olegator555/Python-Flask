@@ -1,0 +1,15 @@
+{% extends 'add.html' %}
+{% block title %}
+<h1>Редактирование элемента</h1>
+{% endblock %}
+{% block form %}
+    Метраж:
+    <input type="text" name="no" value="{{ no }}">
+    <br>
+    Цена:
+    <input type="text" name="price" value="{{ price }}">
+    <br>
+    <input type="date" name="date" value="{{ date }}">
+    <input type="submit" value="Изменить"><br>
+    <input type="button" value="Назад" onclick="window.location.href = '/order'"/>
+{% endblock %}

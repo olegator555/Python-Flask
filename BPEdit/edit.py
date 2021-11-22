@@ -1,5 +1,6 @@
 from flask import Blueprint, request, url_for
 from flask import render_template, redirect
+
 from UserDatabase import work_with_db
 from BPQuery.main import dbconfig
 

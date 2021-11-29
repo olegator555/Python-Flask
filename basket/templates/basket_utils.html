@@ -1,0 +1,24 @@
+{% macro render_item(item, show_form=False) %}
+<div style="border-style: solid; border-color: red; margin: 10px">
+    <p>
+        <span>Метраж: {{ item[1] }}</span>
+        <span>Цена в месяц: {{ item[2] }}</span>
+    </p>
+    <form action="" method="post" id="form">
+        <input type="hidden" name = "hidden" id="main" value="{{ item[0] }}">
+        <input type="submit" name = "submit" value="Добавить">
+    </form>
+</div>
+{% endmacro %}
+{% macro render_basket(item,show_form=False) %}
+<div style="border-style: solid; border-color: blue; margin: 10px">
+    <p>
+        <span>Метраж: {{ item[1][0][0] }}</span>
+        <span>Цена в месяц: {{ item[1][0][1] }}</span>
+    </p>
+    <form action="" method="post" id="form">
+        <input type="hidden" name = "hidden" id="main" value="{{ item[0] }}">
+        <input type="hidden" name = "submit" value="Удалить">
+    </form>
+</div>
+{% endmacro %}

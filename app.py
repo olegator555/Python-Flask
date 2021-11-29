@@ -5,12 +5,14 @@ from flask import Flask, render_template, session
 from BPAuth.auth import auth
 from BPQuery.main import main
 from BPEdit.edit import edit
+from basket.routes import basket_app
 from decor import group_validation_decorator
 
 app = Flask(__name__)
 app.register_blueprint(main, url_prefix="/requests")
 app.register_blueprint(auth, url_prefix="/auth")
 app.register_blueprint(edit, url_prefix="/order")
+app.register_blueprint(basket_app, url_prefix="/basket")
 
 app.config['SECRET_KEY'] = "abide"
 app.config['ACCESS_CONFIG'] = json.load(open('config/access.json'))
